@@ -1,4 +1,4 @@
-const GetLista =(obj) =>{
+const getLista =(obj) =>{
 
     return fetch("https://www.swapi.tech/api/"+obj)
     .then(res => {

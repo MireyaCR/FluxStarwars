@@ -1,3 +1,4 @@
+import getLista from "../api/getLista";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -12,13 +13,39 @@ const getState = ({ getStore, getActions, setStore }) => {
 					background: "white",
 					initial: "white"
 				}
-			]
-		
-			
-
-		},
+			],
+			people:[],
+			starships:[],
+			planets:[],
+			favorites:[]
+	},
 		actions: {
 			// Use getActions to call a function within a fuction
+			getPeople:() =>{
+				getLista('people').then(respuesta => {
+					setStore({people:respuesta})
+				  })    
+				  .catch(err => {
+					console.error('ERROR',err)
+				  })
+			},
+			
+			getStarships:() =>{
+				getLista('starships').then(respuesta => {
+					setStore({starships:respuesta})
+				})
+				.catch(err => {
+					console.error('ERROR',err)
+				  })				
+			},
+			getPlanets:() =>{
+				getLista('planets').then(respuesta => {
+					setStore({planets:respuesta})
+				})
+				.catch(err => {
+					console.error('ERROR',err)
+				  })				
+			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},

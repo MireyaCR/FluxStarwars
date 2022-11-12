@@ -1,6 +1,6 @@
 import propTypes from "prop-types";
 import React from "react";
-import notfound from "../../../public/assets/404.png";
+import notfound from "../../img/404.png";
 import { useHistory } from "react-router-dom";
 
 
