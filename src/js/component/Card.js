@@ -14,8 +14,8 @@ const Card=(props) =>{
             <div className="card-body">
                     <p className="card-title"><strong>{props.name}</strong></p>                                  
                     <button onClick={()=>{
-                        history.push("/detail/"+props.uid,{type:props.type,typeImage:props.typeImage})
-                    }} href="#" type="button" className="btn-sm btn-primary float-start">Learn more </button>       
+                        history.push("/single/"+props.uid,{type:props.type,typeImage:props.typeImage})
+                    }} href="#" type="button" className="btn-sm float-start btn-primary ">Learn more </button>       
                     <button href="#" className="btn-sm btn-outline-danger float-end"><i className="far fa-heart"></i></button>                              
             </div>
     </div>

@@ -1,3 +1,4 @@
+import getDetail from "../api/getDetail";
 import getLista from "../api/getLista";
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
@@ -17,6 +18,7 @@ const getState = ({ getStore, getActions, setStore }) => {
 			people:[],
 			starships:[],
 			planets:[],
+			detail:{properties:{}},
 			favorites:[]
 	},
 		actions: {
@@ -45,6 +47,14 @@ const getState = ({ getStore, getActions, setStore }) => {
 				.catch(err => {
 					console.error('ERROR',err)
 				  })				
+			},
+			getSingle:(type, id)=>{
+				getDetail(type,id).then(respuesta => {
+					setStore({detail:respuesta})
+				  })    
+				  .catch(err => {
+					console.error('ERROR',err)
+				  })
 			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

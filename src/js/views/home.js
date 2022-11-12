@@ -3,19 +3,18 @@ import React,{useState,useEffect,useContext} from "react";
 import getLista from "../api/getLista.js";
 import { Context } from "../store/appContext";
 
-
 export const Home=()=> {
-  const { store, actions } = useContext(Context);
-  
+
+  const { store, actions } = useContext(Context);  
   const [naves,setNaves]=useState([])
   const [planets,setPlanets]=useState([])
  
   useEffect(()=>{
     actions.getPeople()
     actions.getPlanets()
-    actions.getStarships()
-   
+    actions.getStarships()   
   }, [])
+  
   return(
           <div className="container-fluid">
             <div className="row justify-content-md-center m-5">         
