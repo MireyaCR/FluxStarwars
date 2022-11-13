@@ -10,8 +10,9 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="ml-auto m-3">
-				<Link to="/demo">
+				<Link to="">
 					<button className="btn-sm btn-primary">Favorites</button>
+					{/* cuando se pulsa el boton , desplegar todos los elementos de favoritos */}
 				</Link>
 			</div>
 		</nav>

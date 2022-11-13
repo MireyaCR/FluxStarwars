@@ -1,5 +1,6 @@
 import getDetail from "../api/getDetail";
 import getLista from "../api/getLista";
+
 const getState = ({ getStore, getActions, setStore }) => {
 	return {
 		store: {
@@ -55,6 +56,32 @@ const getState = ({ getStore, getActions, setStore }) => {
 				  .catch(err => {
 					console.error('ERROR',err)
 				  })
+			},
+			addFavorite:(uid,type)=>{
+				const store = getStore();
+				let detail;
+				const temp = store[type].map((element)=>{
+					if (element.uid===uid){
+						detail=element
+						element.like=true
+					}
+					return element
+				})
+				switch (type) {
+					case 'people':
+						setStore({ people: temp})
+						break;
+					case '':
+
+						break;
+					case '':
+
+						break;
+				}
+				if (!store.favorites.includes(detail.name)){
+					store.favorites.push(detail.name);
+					setStore({favorites: [...store.favorites]})
+				}	
 			},
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");

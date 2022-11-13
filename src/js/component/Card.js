@@ -1,11 +1,14 @@
 import propTypes from "prop-types";
-import React from "react";
 import notfound from "../../img/404.png";
 import { useHistory } from "react-router-dom";
+import { Context } from "../store/appContext";
+import React,{useState,useEffect,useContext} from "react";
 
 
 const Card=(props) =>{
     const history=useHistory();
+    const { actions } = useContext(Context);  
+    
     return(
     <div className="col-sm-2 card m-1" style={{padding:0}}>
             <div className="card-header" style={{padding:0}}>
@@ -17,7 +20,11 @@ const Card=(props) =>{
                         <button onClick={()=>{
                             history.push("/single/"+props.uid,{type:props.type,typeImage:props.typeImage})
                         }} href="#" type="button" className="btn-sm btn-primary ">Learn More </button>       
-                        <button href="#" className="btn-sm btn-outline-danger"><i className="far fa-heart"></i></button>     
+                        
+                        <button onClick={() => {
+                             actions.addFavorite(props.uid,props.type);
+                        }} type="button" className="btn btn-sm btn-outline-danger">{props.like?'❤️':'🤍'}</button>
+                        {/* cambiar el color del corazon y sumar uno al contador de favoritos y añadir el elemento a la lista */}
                     </div>                         
             </div>
     </div>
@@ -31,6 +38,7 @@ Card.propTypes={
         url:propTypes.string,
         type:propTypes.string,
         typeImage:propTypes.string,
+        like:propTypes.bool,
         
        
 };

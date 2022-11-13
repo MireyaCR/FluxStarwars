@@ -35,7 +35,7 @@ export const Home=()=> {
                 <div className="row justify-content-beteewn m-5">         
                     {store.people.map((element,index)=>{
                       return (
-                        <Card key={index} name={element.name} uid={element.uid} typeImage={'characters'} type={'people'}/>
+                        <Card key={index} name={element.name} uid={element.uid} typeImage={'characters'} type={'people'} like={element.like}/>
                       )
                     })}          
                 </div>   
@@ -43,7 +43,7 @@ export const Home=()=> {
                 <div className="row justify-content-md-center m-5">
                     {store.starships.map((element,index)=>{
                       return (
-                        <Card key={index} name={element.name} uid={element.uid} typeImage={'starships'} type={'starships'}/>
+                        <Card key={index} name={element.name} uid={element.uid} typeImage={'starships'} type={'starships'}  like={element.like}/>
                       )
                     })}                                                                       
                 </div>
@@ -51,7 +51,7 @@ export const Home=()=> {
                 <div className="row justify-content-md-center m-5">
                       {store.planets.map((element,index)=>{
                         return (
-                          <Card key={index} name={element.name} uid={element.uid} typeImage={'planets'} type={'planets'}/>
+                          <Card key={index} name={element.name} uid={element.uid} typeImage={'planets'} type={'planets'}  like={element.like}/>
                         )
                       })}                                                                       
                 </div> 
