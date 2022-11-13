@@ -2,7 +2,7 @@ import propTypes from "prop-types";
 import notfound from "../../img/404.png";
 import { useHistory } from "react-router-dom";
 import { Context } from "../store/appContext";
-import React,{useState,useEffect,useContext} from "react";
+import React,{useContext} from "react";
 
 
 const Card=(props) =>{
