@@ -16,29 +16,47 @@ export const Home=()=> {
   }, [])
   
   return(
-          <div className="container-fluid">
-            <div className="row justify-content-md-center m-5">         
+         <div className="container-fluid">
+            <nav id="navbar-example2" class="navbar mx-auto px-3 mb-3 sticky-sm-top w-50">
+                <ul className="nav nav-pills">
+                      <li className="nav-item">
+                           <a className="nav-link" href="#scrollspyHeading1">People</a>
+                      </li>
+                      <li className="nav-item">
+                           <a className="nav-link" href="#scrollspyHeading2">Starships</a>
+                      </li>
+                      <li className="nav-item">
+                          <a className="nav-link" href="#scrollspyHeading3">Planets</a>
+                      </li>    
+                </ul>
+            </nav>
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+                <h4 id="scrollspyHeading1">People</h4>
+                <div className="row justify-content-md-center m-5">         
                     {store.people.map((element,index)=>{
                       return (
                         <Card key={index} name={element.name} uid={element.uid} typeImage={'characters'} type={'people'}/>
                       )
                     })}          
-            </div>   
-            <div className="row justify-content-md-center m-5">
+                </div>   
+                <h4 id="scrollspyHeading2">Startships</h4>
+                <div className="row justify-content-md-center m-5">
                     {store.starships.map((element,index)=>{
                       return (
                         <Card key={index} name={element.name} uid={element.uid} typeImage={'starships'} type={'starships'}/>
                       )
                     })}                                                                       
-              </div>
-              <div className="row justify-content-md-center m-5">
-                    {store.planets.map((element,index)=>{
-                      return (
-                        <Card key={index} name={element.name} uid={element.uid} typeImage={'planets'} type={'planets'}/>
-                      )
-                    })}                                                                       
-              </div> 
+                </div>
+                <h4 id="scrollspyHeading3">Planets</h4>   
+                <div className="row justify-content-md-center m-5">
+                      {store.planets.map((element,index)=>{
+                        return (
+                          <Card key={index} name={element.name} uid={element.uid} typeImage={'planets'} type={'planets'}/>
+                        )
+                      })}                                                                       
+                </div> 
           </div>
+        </div>
   )
 }
 // import React from "react";
