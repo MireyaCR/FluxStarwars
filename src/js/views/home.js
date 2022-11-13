@@ -16,23 +16,23 @@ export const Home=()=> {
   }, [])
   
   return(
-         <div className="container-fluid">
-            <nav id="navbar-example2" class="navbar mx-auto px-3 mb-3 sticky-sm-top w-50">
-                <ul className="nav nav-pills">
-                      <li className="nav-item">
-                           <a className="nav-link" href="#scrollspyHeading1">People</a>
-                      </li>
-                      <li className="nav-item">
-                           <a className="nav-link" href="#scrollspyHeading2">Starships</a>
-                      </li>
-                      <li className="nav-item">
-                          <a className="nav-link" href="#scrollspyHeading3">Planets</a>
-                      </li>    
-                </ul>
+         <div className="container-fluid px-0">
+            <nav id="navbar-example2" className="navbar sticky-sm-top w-50 ms-5 px-5 mb-3">
+              <ul className="nav nav-pills">
+                 <li className="nav-item">
+                    <a className="nav-link" href="#scrollspyHeading1">People</a>
+                 </li>
+                 <li className="nav-item">
+                    <a className="nav-link" href="#scrollspyHeading2">Starships</a>
+                 </li>
+                 <li className="nav-item">
+                    <a className="nav-link" href="#scrollspyHeading3">Planets</a>
+                 </li>    
+              </ul>
             </nav>
             <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
                 <h4 id="scrollspyHeading1">People</h4>
-                <div className="row justify-content-md-center m-5">         
+                <div className="row justify-content-beteewn m-5">         
                     {store.people.map((element,index)=>{
                       return (
                         <Card key={index} name={element.name} uid={element.uid} typeImage={'characters'} type={'people'}/>

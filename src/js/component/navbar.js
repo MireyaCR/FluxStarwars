@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 export const Navbar = () => {
 	return (
-		<nav className="navbar navbar-light bg-light mb-2 sticky-sm-top">
+		<nav className="navbar navbar-light bg-light sticky-sm-top">
 			<Link to="/">
 				<span className="navbar-brand m-3 h1">
 					<img src="https://cdn.goodvinilos.com/61003/vinilo-logo-star-wars.jpg" alt="StarWars" width="100" height="100"/>
