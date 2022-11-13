@@ -71,11 +71,11 @@ const getState = ({ getStore, getActions, setStore }) => {
 					case 'people':
 						setStore({ people: temp})
 						break;
-					case '':
-
+					case 'startships':
+						setStore({ starships: temp})
 						break;
-					case '':
-
+					case 'planets':
+						setStore({ planets: temp})
 						break;
 				}
 				if (!store.favorites.includes(detail.name)){
