@@ -1,15 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Context } from "../store/appContext";
-import {useContext,useEffect} from "react";
+import propTypes from "prop-types";
 
-export const Navbar = () => {
-
-	const { store,actions } = useContext(Context);  
-
-	useEffect(()=>{
-		actions.getFavorites()		    
-	  })
+export const Navbar = (props) => {
 
 	return (
 		<nav className="navbar navbar-light bg-light sticky-sm-top">
@@ -19,19 +12,24 @@ export const Navbar = () => {
 				</span>
 			</Link>
 			<div className="dropdown-sm m-3">
-				<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite<span className="badge badge-light">{store.favorites.lenght}</span></button>
-				<div className="dropdown-menu">
-					{store.favorites.map((element,index)=>{ 
+				<button onClick={() => {
+					<div className="dropdown-menu">
+					{props.favorites.map((element,index)=>{ 
 						return(                       
                          		<a key={index} className="dropdown-item" href="#"><p>{element.name}</p><button>"p"</button></a> 
 						)
 					})}
 				</div>				
+				}}
+				className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite<span className="badge badge-light">{props.favorites.lenght}</span></button>
+				
 			</div>
 		</nav>		
 	);
 };
 
-
+Navbar.propTypes={
+	favorite:propTypes.object,
+};
 
 
