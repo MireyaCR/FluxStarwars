@@ -16,39 +16,39 @@ export const Home=()=> {
   }, [])
   
   return(
-         <div className="container-fluid px-0">
-            <nav id="navbar-example2" className="navbar sticky-sm-top w-50 ms-5 px-5 mb-3">
+         <div className="container-fluid">          
+            <nav id="navbar-example2" style={{height:"0rem"}} className="justify-content-center navbar">
               <ul className="nav nav-pills">
                  <li className="nav-item">
-                    <a className="nav-link" href="#scrollspyHeading1">People</a>
+                    <a className="nav-link text-center" href="#scrollspyHeading1">People</a>
                  </li>
                  <li className="nav-item">
-                    <a className="nav-link" href="#scrollspyHeading2">Starships</a>
+                    <a className="nav-link text-center" href="#scrollspyHeading2">Starships</a>
                  </li>
                  <li className="nav-item">
                     <a className="nav-link" href="#scrollspyHeading3">Planets</a>
                  </li>    
               </ul>
-            </nav>
+            </nav>          
             <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
-                <h4 id="scrollspyHeading1">People</h4>
-                <div className="row justify-content-beteewn m-5">         
+                <div className="row m-5">     
+                <h4 id="scrollspyHeading1">People</h4>    
                     {store.people.map((element,index)=>{
                       return (
                         <Card key={index} name={element.name} uid={element.uid} typeImage={'characters'} type={'people'} like={element.like}/>
                       )
                     })}          
-                </div>   
+                </div>                
+                <div className="row m-5">
                 <h4 id="scrollspyHeading2">Startships</h4>
-                <div className="row justify-content-md-center m-5">
                     {store.starships.map((element,index)=>{
                       return (
                         <Card key={index} name={element.name} uid={element.uid} typeImage={'starships'} type={'starships'}  like={element.like}/>
                       )
                     })}                                                                       
                 </div>
-                <h4 id="scrollspyHeading3">Planets</h4>   
-                <div className="row justify-content-md-center m-5">
+                <div className="row m-5">
+                <h4 id="scrollspyHeading3">Planets</h4> 
                       {store.planets.map((element,index)=>{
                         return (
                           <Card key={index} name={element.name} uid={element.uid} typeImage={'planets'} type={'planets'}  like={element.like}/>
