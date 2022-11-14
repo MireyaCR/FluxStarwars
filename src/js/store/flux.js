@@ -57,6 +57,10 @@ const getState = ({ getStore, getActions, setStore }) => {
 					console.error('ERROR',err)
 				  })
 			},
+			getFavorites:()=>{
+				const store= getStore()
+				return store.favorites
+			},
 			addFavorite:(uid,type)=>{
 				const store = getStore();
 				let detail;

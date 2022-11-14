@@ -2,6 +2,7 @@ import React, {  useEffect, useContext, } from "react";
 import PropTypes from "prop-types";
 import { Link,useLocation, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
+import notfound from "../../img/404.png";
 
 export const Single = props => {
 	 const { store, actions } = useContext(Context);

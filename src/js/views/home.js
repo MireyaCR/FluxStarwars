@@ -1,18 +1,14 @@
 import Card from "../component/Card.js";
 import React,{useState,useEffect,useContext} from "react";
-import getLista from "../api/getLista.js";
 import { Context } from "../store/appContext";
 
 export const Home=()=> {
-
   const { store, actions } = useContext(Context);  
-  const [naves,setNaves]=useState([])
-  const [planets,setPlanets]=useState([])
- 
+   
   useEffect(()=>{
     actions.getPeople()
     actions.getPlanets()
-    actions.getStarships()   
+    actions.getStarships()     
   }, [])
   
   return(
@@ -30,7 +26,7 @@ export const Home=()=> {
                  </li>    
               </ul>
             </nav>          
-            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2" tabindex="0">
+            <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2">
                 <div className="row m-5">     
                 <h4 id="scrollspyHeading1">People</h4>    
                     {store.people.map((element,index)=>{

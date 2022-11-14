@@ -1,7 +1,16 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Context } from "../store/appContext";
+import {useContext,useEffect} from "react";
 
 export const Navbar = () => {
+
+	const { store,actions } = useContext(Context);  
+
+	useEffect(()=>{
+		actions.getFavorites()		    
+	  })
+
 	return (
 		<nav className="navbar navbar-light bg-light sticky-sm-top">
 			<Link to="/">
@@ -9,14 +18,17 @@ export const Navbar = () => {
 					<img src="https://cdn.goodvinilos.com/61003/vinilo-logo-star-wars.jpg" alt="StarWars" width="100" height="100"/>
 				</span>
 			</Link>
-			<div className="ml-auto m-3">
-				<Link to="">
-					<button className="btn-sm btn-primary">Favorites</button>
-					{/* cuando se pulsa el boton , desplegar todos los elementos de favoritos */}
-				</Link>
+			<div className="dropdown-sm m-3">
+				<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite<span className="badge badge-light">{store.favorites.lenght}</span></button>
+				<div className="dropdown-menu">
+					{store.favorites.map((element,index)=>{ 
+						return(                       
+                         		<a key={index} className="dropdown-item" href="#"><p>{element.name}</p><button>"p"</button></a> 
+						)
+					})}
+				</div>				
 			</div>
-		</nav>
-		
+		</nav>		
 	);
 };
 
