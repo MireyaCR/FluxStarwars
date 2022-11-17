@@ -22,10 +22,11 @@ export const Navbar = () => {
 			<div className="dropdown m-3 d-flex">
 				<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
 					Favorite<span className="badge badge-light">{store.favorites.length}</span></button>
-				<ul  className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				<ul className="dropdown-menu mx-auto dropdown-menu-sm-end" aria-labelledby="dropdownMenuButton1">
 				{store.favorites.map((element,index)=>{ 
 						return(               
-                         		<li className="justify-content-between"><a className="dropdown-item" href="#">{element}</a><button>"p"</button></li> 
+                         		<li key={index}className="">
+									<button className="btn"> 🗑️</button>{element}</li> 
 						)
 					})}
 				</ul>
