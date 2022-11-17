@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 import propTypes from "prop-types";
-import { Context } from "../store/appContext";
+import { Context } from "./store/appContext";
 import {useContext} from "react";
 
 import { Home } from "./views/home";
@@ -23,7 +23,7 @@ const Layout = () => {
 		<div>
 			<BrowserRouter basename={basename}>
 				<ScrollToTop>
-					<Navbar name={store.favorites.name} />
+					<Navbar />
 					<Switch>
 						<Route exact path="/">
 							<Home />

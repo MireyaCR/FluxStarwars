@@ -1,8 +1,16 @@
-import React from "react";
+import React, { useEffect,useContext } from "react";
 import { Link } from "react-router-dom";
-import propTypes from "prop-types";
 
-export const Navbar = (props) => {
+import { Context } from "../store/appContext";
+
+
+export const Navbar = () => {
+	
+	const { actions,store } = useContext(Context);  
+	
+	useEffect(()=>{
+		actions.getFavorites()
+	})
 
 	return (
 		<nav className="navbar navbar-light bg-light sticky-sm-top">
@@ -11,25 +19,22 @@ export const Navbar = (props) => {
 					<img src="https://cdn.goodvinilos.com/61003/vinilo-logo-star-wars.jpg" alt="StarWars" width="100" height="100"/>
 				</span>
 			</Link>
-			<div className="dropdown-sm m-3">
-				<button onClick={() => {
-					<div className="dropdown-menu">
-					{props.favorites.map((element,index)=>{ 
-						return(                       
-                         		<a key={index} className="dropdown-item" href="#"><p>{element.name}</p><button>"p"</button></a> 
+			<div className="dropdown m-3 d-flex">
+				<button className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+					Favorite<span className="badge badge-light">{store.favorites.length}</span></button>
+				<ul  className="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+				{store.favorites.map((element,index)=>{ 
+						return(               
+                         		<li className="justify-content-between"><a className="dropdown-item" href="#">{element}</a><button>"p"</button></li> 
 						)
 					})}
-				</div>				
-				}}
-				className="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Favorite<span className="badge badge-light">{props.favorites.lenght}</span></button>
+				</ul>
 				
 			</div>
 		</nav>		
 	);
 };
 
-Navbar.propTypes={
-	favorite:propTypes.object,
-};
+
 
 

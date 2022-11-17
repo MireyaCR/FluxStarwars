@@ -24,7 +24,7 @@ const Card=(props) =>{
                         <button onClick={() => {
                              actions.addFavorite(props.uid,props.type);
                         }} type="button" className="btn btn-sm btn-primary">{props.like?'❤️':'🤍'}</button>
-                        {/* cambiar el color del corazon y sumar uno al contador de favoritos y añadir el elemento a la lista */}
+                     
                     </div>                         
             </div>
     </div>
