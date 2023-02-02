@@ -13,21 +13,21 @@ export const Home=()=> {
   
   return(
          <div className="container-fluid">          
-            <nav id="navbar-example2" style={{height:"0rem"}} className="justify-content-center navbar">
-              <ul className="nav nav-pills">
-                 <li className="nav-item">
-                    <a className="nav-link text-center" href="#scrollspyHeading1">People</a>
+            <nav id="navbar-example2-sm" className="justify-content-center navbar">
+              <ul className="nav nav-pills-sm">
+                 <li className="nav-item justify-content-between">
+                    <a className="nav-link p-0  text-center" href="#scrollspyHeading1">People</a>
                  </li>
                  <li className="nav-item">
-                    <a className="nav-link text-center" href="#scrollspyHeading2">Starships</a>
+                    <a className="nav-link p-0 ms-3 text-center" href="#scrollspyHeading2">Starships</a>
                  </li>
                  <li className="nav-item">
-                    <a className="nav-link" href="#scrollspyHeading3">Planets</a>
+                    <a className="nav-link p-0 ms-3" href="#scrollspyHeading3">Planets</a>
                  </li>    
               </ul>
             </nav>          
             <div data-bs-spy="scroll" data-bs-target="#navbar-example2" data-bs-root-margin="0px 0px -40%" data-bs-smooth-scroll="true" className="scrollspy-example bg-light p-3 rounded-2">
-                <div className="row m-5">     
+                <div className="row justify-content-sm-center ">     
                 <h4 id="scrollspyHeading1">People</h4>    
                     {store.people.map((element,index)=>{
                       return (
@@ -35,7 +35,7 @@ export const Home=()=> {
                       )
                     })}          
                 </div>                
-                <div className="row m-5">
+                <div className="row justify-content-sm-center ms-2 mt-2">
                 <h4 id="scrollspyHeading2">Startships</h4>
                     {store.starships.map((element,index)=>{
                       return (
@@ -43,7 +43,7 @@ export const Home=()=> {
                       )
                     })}                                                                       
                 </div>
-                <div className="row m-5">
+                <div className="row justify-content-sm-center ms-2 mt-2">
                 <h4 id="scrollspyHeading3">Planets</h4> 
                       {store.planets.map((element,index)=>{
                         return (
