@@ -24,10 +24,13 @@ export const Navbar = () => {
 					Favorite<span className="badge badge-light">{store.favorites.length}</span></button>
 				<ul className="dropdown-menu mx-auto dropdown-menu-sm-end" aria-labelledby="dropdownMenuButton1">
 				{store.favorites.map((element,index)=>{ 
+					console.log(element)
 						return(               
                          		<li key={index}className="">
-									<button className="btn"> 🗑️</button>{element}</li> 
-						)
+									<button className="btn" onClick={() => {
+										     actions.removeFavorite(element.uid,element.type);
+                       					 }}> 🗑️</button>{element.name} </li> 
+								)
 					})}
 				</ul>
 				

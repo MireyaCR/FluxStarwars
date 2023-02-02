@@ -82,11 +82,36 @@ const getState = ({ getStore, getActions, setStore }) => {
 						setStore({ planets: temp})
 						break;
 				}
-				if (!store.favorites.includes(detail.name)){
-					store.favorites.push(detail.name);
+
+				const fav=store.favorites
+				const favfilter=fav.filter((element)=>element.name==detail.name)
+				if (favfilter.length==0){
+					store.favorites.push({ ...detail, type});
 					setStore({favorites: [...store.favorites]})
 				}	
 			},
+			removeFavorite:(uid, type) =>{
+				const store = getStore();
+				const temp = store[type].map((element) => {
+				  if (element.uid === uid) {
+					element.like = false;
+				  }
+				  return element
+				})
+				switch (type) {
+				  case "people":
+					setStore({ people: temp });
+					break;
+				  case "startships":
+					setStore({ starships: temp });
+					break;
+				  case "planets":
+					setStore({ planets: temp });
+					break;
+				}
+				store.favorites = store.favorites.filter((detail) => detail.uid !== uid);
+				setStore({ favorites: [...store.favorites] });
+			  },
 			exampleFunction: () => {
 				getActions().changeColor(0, "green");
 			},
